@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>idea for me</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- jQuery -->
+  <script src="/vendor/jquery/dist/jquery.min.js"></script>
+  <!-- Underscore -->
+  <script src="/vendor/underscore/underscore-min.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.min.css">
+  <!-- ToEat.ly -->
+  <link rel="stylesheet" type="text/css" href="/static/css/main.css">
+  <script src="/static/js/app.js"></script>
+</head>
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <p class="navbar-text navbar-right">You are signed in <!-- as <a href="#" class="navbar-link">Mark Otto</a> --></p>
+      <h2>Lets Make an Idea</h2>
+    </div>
+    <div></div>
+</nav>
+  <div class="inout-group">
+    <input type='text' class="form-control" placeholder='what is your project?'>
+
+    <form method="post" action="/profile">
+      <input type="url" name ="imagesHere" placeholder="Put imag url here">
+      <button>add</button> 
+    </form>
+
+      <img src='http://blog.builddirect.com/wp-content/uploads/2011/07/Desk-top.jpg' id="desktop" class="img-responsive center-block img-rounded" alt="Responsive image">
+      
+          <!-- placeholder -->
+      <tr id="imag-placeholder" class="text"></tr>
+
+        <!-- template -->
+        <script type="text/template" id="imag-template">
+            <td class="images">
+              <%= imag %>
+            </td>
+        </script>
+
+        <!-- <tr id="text">
+            <td> 
+              <img src="http://r.ddmcdn.com/w_600/s_f/o_1/cx_50/cy_0/cw_540/ch_360/APL/uploads/2014/07/1405106713345B029HH_12670801101197_Beagle.jpg" id='imag' class="img-rounded num1"> </td>
+            <td>
+              <img src="http://r.ddmcdn.com/w_600/s_f/o_1/cx_50/cy_0/cw_540/ch_360/APL/uploads/2014/07/1405106713345B029HH_12670801101197_Beagle.jpg" id='imag' class="img-rounded num2"></td>
+          <div>
+            <td>
+              <img src="http://r.ddmcdn.com/w_600/s_f/o_1/cx_50/cy_0/cw_540/ch_360/APL/uploads/2014/07/1405106713345B029HH_12670801101197_Beagle.jpg" id='imag' class="img-rounded num3"></td>
+            <td>
+              <img src="http://r.ddmcdn.com/w_600/s_f/o_1/cx_50/cy_0/cw_540/ch_360/APL/uploads/2014/07/1405106713345B029HH_12670801101197_Beagle.jpg" id='imag' class="img-rounded"></td>
+          <div> 
+            <td>
+              <img src="http://r.ddmcdn.com/w_600/s_f/o_1/cx_50/cy_0/cw_540/ch_360/APL/uploads/2014/07/1405106713345B029HH_12670801101197_Beagle.jpg" id='imag' class="img-rounded"></td>
+            <td>
+              <img src="http://r.ddmcdn.com/w_600/s_f/o_1/cx_50/cy_0/cw_540/ch_360/APL/uploads/2014/07/1405106713345B029HH_12670801101197_Beagle.jpg" id='imag' class="img-rounded"></td>
+            <td>
+              <img src="http://r.ddmcdn.com/w_600/s_f/o_1/cx_50/cy_0/cw_540/ch_360/APL/uploads/2014/07/1405106713345B029HH_12670801101197_Beagle.jpg" id='imag' class="img-rounded"></td>
+          <div> 
+            <td>
+              <img src="http://r.ddmcdn.com/w_600/s_f/o_1/cx_50/cy_0/cw_540/ch_360/APL/uploads/2014/07/1405106713345B029HH_12670801101197_Beagle.jpg" id='imag' class="img-rounded"></td>
+            <td>
+              <img src="http://r.ddmcdn.com/w_600/s_f/o_1/cx_50/cy_0/cw_540/ch_360/APL/uploads/2014/07/1405106713345B029HH_12670801101197_Beagle.jpg" id='imag' class="img-rounded"></td>
+            <td>
+              <img src="http://r.ddmcdn.com/w_600/s_f/o_1/cx_50/cy_0/cw_540/ch_360/APL/uploads/2014/07/1405106713345B029HH_12670801101197_Beagle.jpg" id='imag' class="img-rounded"></td>
+            <td>
+              <img src="http://r.ddmcdn.com/w_600/s_f/o_1/cx_50/cy_0/cw_540/ch_360/APL/uploads/2014/07/1405106713345B029HH_12670801101197_Beagle.jpg" id='imag' class="img-rounded"></td>
+          </div>
+          </div>  
+          </div>
+        </tr> -->
+  </div>
+
+</body>
+</html>
+
+
+
+
+
