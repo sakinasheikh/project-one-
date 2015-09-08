@@ -3,6 +3,15 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema,
     bcrypt = require('bcrypt');
 
+var IdeaSchema = new Schema({
+	title: String,
+	images: Array,
+	createdAt: {
+  	type: Date, 
+  	default: Date.now
+  }
+});
+
 // create user schema
 var UserSchema = new Schema({
   email: {
@@ -17,8 +26,7 @@ var UserSchema = new Schema({
   	type: Date, 
   	default: Date.now
   },
-  ideas: [{Schema.type.ObjectId, ref: "Idea"
-  }]
+  ideas: [IdeaSchema]
 });
 
 
@@ -70,6 +78,8 @@ UserSchema.methods.checkPassword = function (password) {
 
 // define user model
 var User = mongoose.model('User', UserSchema);
+var Idea = mongoose.model('Idea', IdeaSchema);
 
 // export user model
-module.exports = User;
+module.exports.User = User;
+module.exports.Idea = Idea;

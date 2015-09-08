@@ -1,4 +1,5 @@
 var mongoose = require("mongoose");
 mongoose.connect("mongodb://localhost/projectOne");
-
-module.exports.User = require("./user");
+var userModel = require("./user");
+module.exports.User = userModel.User;
+module.exports.Idea = userModel.Idea;

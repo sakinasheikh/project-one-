@@ -4,8 +4,8 @@ var express = require('express'),
     session = require("express-session"), 
     path = require('path'),
     app = express(),
-    _ = require("underscore"),
-    cookieParser = require('cookie-parser');
+    _ = require("underscore");
+    // cookieParser = require('cookie-parser');
 
 // views path
 var views = path.join(process.cwd(), "views");
@@ -14,7 +14,7 @@ app.use(express.static(__dirname + "/public"));
 app.use("/static", express.static("public"));
 app.use("/vendor", express.static("bower_components"));
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(cookieParser());
+// app.use(cookieParser());
 
 db.User.find({}, function (err, foundUsers) {
 	if (err) {
@@ -57,7 +57,11 @@ app.use(function (req, res, next) {
   next(); 
 });
 
-// show the current user
+// show a users idea
+app.get("/api/idea", function (req, res) {
+	//get the images 
+})
+
 app.get("/profile", function (req, res) {
   res.sendFile(path.join(views, "profile.html"))
 });
