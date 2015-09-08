@@ -14,6 +14,7 @@ app.use(express.static(__dirname + "/public"));
 app.use("/static", express.static("public"));
 app.use("/vendor", express.static("bower_components"));
 app.use(bodyParser.urlencoded({extended: true}));
+app.set('view engine', 'ejs');
 // app.use(cookieParser());
 
 db.User.find({}, function (err, foundUsers) {
@@ -63,16 +64,15 @@ app.get("/api/idea", function (req, res) {
 })
 
 app.get("/profile", function (req, res) {
-  res.sendFile(path.join(views, "profile.html"))
+  res.render('profile');
 });
 
 app.get("/signup", function (req, res) {
-  var sineup_form = path.join(views, "signUp.html");
-  res.sendFile(sineup_form);
+  res.render('signUp');
 });
 
 app.get("/login", function (req, res) {
-  res.sendFile(path.join(views, "logIn.html"));
+  res.render('login');
 });
 
 
