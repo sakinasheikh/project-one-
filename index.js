@@ -101,17 +101,34 @@ app.post(["/users", "/signup"], function (req, res) {
   });
 });
 
+
+app.post(["/idea"], function (req, res) {
+  console.log(req.body);
+  var idea = req.body.idea;
+  var titles = idea.titles;
+  var images = idea.images;
+
+
+  db.Idea.createIdea(titles, images, function (err, idea) {
+    console.log(idea);
+    res.redirect("/profile");
+  });
+
+});
+
 // where the user submits the login form
 app.post(["/sessions", "/login"], function (req, res) {
   var user = req.body.user;
   var email = user.email;
   var password = user.password;
   db.User.authenticate(email, password, function (err, user) {
-    // login the user
+    // if(err){console.log(err); res.redirect('/login');}
+
     console.log("this is login user", user);
     req.login(user);
     // redirect to user profile
     res.redirect("/profile"); 
+    
   });
 });
 

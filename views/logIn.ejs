@@ -5,7 +5,7 @@
 </head>
 <body>
 <div class="jumbotron">
-  <h1 class="center">Login</h1>
+  <h1>Login</h1>
   <form method="POST" action="/login" class="from-horizontal">
     <div class="form-group">
       <div class="col-md-8">
@@ -20,6 +20,20 @@
       <div>
         <button type="submit" class="btn btn-default">Login</button>
       </div>
+  </form> <br>
+  <h1>Sign Up</h1>
+  <form method="post" action="/signup" lass="from-horizontal">
+    <div class="form-group">
+      <div class="col-md-8">
+        <input type="text" name="user[email]" class="form-control" placeholder='email'>
+      </div>
+    </div>
+    <div class="form-group">
+      <div <div class="col-md-8">
+        <input type="password" name="user[password]" class="form-control" placeholder='password'>
+      </div>
+    </div>
+    <button type='sumbit' value='submit'>sign up</button>
   </form>
 </div>
 </body>

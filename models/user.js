@@ -29,6 +29,16 @@ var UserSchema = new Schema({
   ideas: [IdeaSchema]
 });
 
+IdeaSchema.statics.createIdea =function (titles, images, cb) {
+  var _this = this;
+  var idea = {
+    titles: titles,
+    images: images,
+    createdAt: Date.now()
+  };
+  _this.create(idea, cb);
+  // UserSchema.push(idea);
+};
 
 // create a new user with secure (hashed) password (for sign up)
 UserSchema.statics.createSecure = function (email, password, cb) {

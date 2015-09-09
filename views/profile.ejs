@@ -7,7 +7,7 @@
       <form method='post' action='/logout'>
         <nav class="navbar navbar-default">
           <div class="container-fluid">
-            <p class="navbar-text navbar-right">You are signed in 
+            <p class="navbar-text navbar-right">You are signed in as <%=user.email%>
                <button type='submit'>log out</button></p> 
             <h2>Lets Make an Idea</h2>
       </form>
@@ -18,12 +18,9 @@
     <input type='text' class="form-control" placeholder='what is your project?'>
   </div> -->
   <div>
-    <form method="post" action="/profile">
-      <input type="text" name ="ideaHere" placeholder="what is your idea?">
-      <button>add</button> 
-    </form>
-    <form method="post" action="/profile">
-      <input type="url" name ="imagesHere" placeholder="Put imag url here">
+    <form method="post" action="/idea">
+      <input type="text" name ="idea[titles]" placeholder="what is your idea?">
+      <input type="url" name ="idea[images]" placeholder="Put imag url here">
       <button>add</button> 
     </form>
 
