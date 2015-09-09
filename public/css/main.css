@@ -8,9 +8,13 @@
 }
 
 #pic {
-	width: 18%;
+	width: 15%;
 	margin: 5px;
 
 }
 
+.jumbotron{
+	background-image:'http://media02.hongkiat.com/overcome-block-generate-blog-ideas/writer-block.jpg';
+	background-repeat: no-repeat;
+}
 

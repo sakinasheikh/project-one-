@@ -4,31 +4,42 @@
   <% include partials/head %>
 </head>
 <body>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <p class="navbar-text navbar-right">You are signed in <!-- as <a href="#" class="navbar-link">Mark Otto</a> --></p>
-      <h2>Lets Make an Idea</h2>
+      <form method='post' action='/logout'>
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <p class="navbar-text navbar-right">You are signed in 
+               <button type='submit'>log out</button></p> 
+            <h2>Lets Make an Idea</h2>
+      </form>
     </div>
     <div></div>
 </nav>
-  <div class="inout-group">
+  <!-- <div class="inout-group">
     <input type='text' class="form-control" placeholder='what is your project?'>
-
+  </div> -->
+  <div>
+    <form method="post" action="/profile">
+      <input type="text" name ="ideaHere" placeholder="what is your idea?">
+      <button>add</button> 
+    </form>
     <form method="post" action="/profile">
       <input type="url" name ="imagesHere" placeholder="Put imag url here">
       <button>add</button> 
     </form>
 
    <!--  <img src='http://blog.builddirect.com/wp-content/uploads/2011/07/Desk-top.jpg' id="desktop" class="img-responsive center-block img-rounded" alt="Responsive image"> -->
-    
-    <div id="ideas-container">
+    <div>  
       <!-- iterate through ideas -->
       <% user.ideas.forEach(function(idea) { %>
+        <h3 class="bootstrapclass"><%= idea.titles %><form method="post" action="/User/<%=user._id%>/idea/<%=idea.id%>?_method=delete"> <button>&times;</button>
+      </form>
+      </h3>
         <!-- iterate through an idea's images -->
         <% idea.images.forEach(function(imageSrc) { %>
-          <img src="<%= imageSrc %>" id="pic">
+          <img src="<%= imageSrc %>" id="pic" class="img-thumbnail">
         <% }); %>
       <% }); %>
+    
     </div>
 
         <!-- placeholder -->
@@ -37,11 +48,11 @@
   </div>
 
   <!-- template -->
-  // <script type="text/template" id="imag-template">
-  //     <td class="images">
-  //       {{= imag }}
-  //     </td>
-  // </script>
+  <script type="text/template" id="imag-template">
+      <td class="images">
+        {{= imag }}
+      </td>
+  </script>
 
 </body>
 </html>

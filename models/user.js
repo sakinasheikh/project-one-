@@ -4,7 +4,7 @@ var mongoose = require('mongoose'),
     bcrypt = require('bcrypt');
 
 var IdeaSchema = new Schema({
-	title: String,
+	titles: String,
 	images: Array,
 	createdAt: {
   	type: Date, 

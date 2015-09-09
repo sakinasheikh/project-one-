@@ -4,6 +4,7 @@ var express = require('express'),
     session = require("express-session"), 
     path = require('path'),
     app = express(),
+    methodOverRide = require('method-override'),
     _ = require("underscore");
     // cookieParser = require('cookie-parser');
 
@@ -15,6 +16,7 @@ app.use("/static", express.static("public"));
 app.use("/vendor", express.static("bower_components"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
+app.use(methodOverRide('_method'));
 // app.use(cookieParser());
 
 db.User.find({}, function (err, foundUsers) {
@@ -65,8 +67,8 @@ app.get("/api/idea", function (req, res) {
 
 app.get("/profile", function (req, res) {
   req.currentUser(function(err, user) {
-    if (err) {
-      req.redirect("/login");
+    if (req.user === null) {
+      res.redirect("/login");
     }
     res.render('profile', {user: user});
   })
@@ -93,7 +95,7 @@ app.post(["/users", "/signup"], function (req, res) {
   	console.log("this is signup user", user);
   	req.login(user);
 
-    res.redirect("/login"); 
+    res.redirect("/profile"); 
     // res.send(email + " is registered!\n");
 
   });
@@ -113,6 +115,26 @@ app.post(["/sessions", "/login"], function (req, res) {
   });
 });
 
+app.post(["/sessions", "/logout"], function (req, res) {
+  req.logout();
+  res.redirect("/login");
+})
+
+app.delete('/user/:_id/idea/:id', function (req, res) {
+  console.log(req.params);
+  var artId = req.params.id
+  console.log("params", artId);
+  db.User.findOne(req.params._id).then(function (user) {
+    user.ideas.id(artId).remove();
+      user.save(function (err){
+        if (err) {
+          console.log(err);
+        }
+        res.redirect("/profile");
+      });    
+  });
+});
+
 // app.post("/profile", function (req, res) {
 // 	var imag = req.body.imagesHere;
 // 	db.Imag.create(image, function (err, imag) {
@@ -120,8 +142,7 @@ app.post(["/sessions", "/login"], function (req, res) {
 // 		res.redirect("/profile")
 // 	})
 // })
-
-
+// 
 
 
 
