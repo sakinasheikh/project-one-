@@ -19,49 +19,29 @@
       <button>add</button> 
     </form>
 
-      <img src='http://blog.builddirect.com/wp-content/uploads/2011/07/Desk-top.jpg' id="desktop" class="img-responsive center-block img-rounded" alt="Responsive image">
-      
-          <!-- placeholder -->
-      <tr id="imag-placeholder" class="text"></tr>
+   <!--  <img src='http://blog.builddirect.com/wp-content/uploads/2011/07/Desk-top.jpg' id="desktop" class="img-responsive center-block img-rounded" alt="Responsive image"> -->
+    
+    <div id="ideas-container">
+      <!-- iterate through ideas -->
+      <% user.ideas.forEach(function(idea) { %>
+        <!-- iterate through an idea's images -->
+        <% idea.images.forEach(function(imageSrc) { %>
+          <img src="<%= imageSrc %>" id="pic">
+        <% }); %>
+      <% }); %>
+    </div>
 
-        <!-- template -->
-        <script type="text/template" id="imag-template">
-            <td class="images">
-              {{= imag }}
-            </td>
-        </script>
+        <!-- placeholder -->
+    <tr id="imag-placeholder" class="text"></tr>
 
-        <!-- <tr id="text">
-            <td> 
-              <img src="http://r.ddmcdn.com/w_600/s_f/o_1/cx_50/cy_0/cw_540/ch_360/APL/uploads/2014/07/1405106713345B029HH_12670801101197_Beagle.jpg" id='imag' class="img-rounded num1"> </td>
-            <td>
-              <img src="http://r.ddmcdn.com/w_600/s_f/o_1/cx_50/cy_0/cw_540/ch_360/APL/uploads/2014/07/1405106713345B029HH_12670801101197_Beagle.jpg" id='imag' class="img-rounded num2"></td>
-          <div>
-            <td>
-              <img src="http://r.ddmcdn.com/w_600/s_f/o_1/cx_50/cy_0/cw_540/ch_360/APL/uploads/2014/07/1405106713345B029HH_12670801101197_Beagle.jpg" id='imag' class="img-rounded num3"></td>
-            <td>
-              <img src="http://r.ddmcdn.com/w_600/s_f/o_1/cx_50/cy_0/cw_540/ch_360/APL/uploads/2014/07/1405106713345B029HH_12670801101197_Beagle.jpg" id='imag' class="img-rounded"></td>
-          <div> 
-            <td>
-              <img src="http://r.ddmcdn.com/w_600/s_f/o_1/cx_50/cy_0/cw_540/ch_360/APL/uploads/2014/07/1405106713345B029HH_12670801101197_Beagle.jpg" id='imag' class="img-rounded"></td>
-            <td>
-              <img src="http://r.ddmcdn.com/w_600/s_f/o_1/cx_50/cy_0/cw_540/ch_360/APL/uploads/2014/07/1405106713345B029HH_12670801101197_Beagle.jpg" id='imag' class="img-rounded"></td>
-            <td>
-              <img src="http://r.ddmcdn.com/w_600/s_f/o_1/cx_50/cy_0/cw_540/ch_360/APL/uploads/2014/07/1405106713345B029HH_12670801101197_Beagle.jpg" id='imag' class="img-rounded"></td>
-          <div> 
-            <td>
-              <img src="http://r.ddmcdn.com/w_600/s_f/o_1/cx_50/cy_0/cw_540/ch_360/APL/uploads/2014/07/1405106713345B029HH_12670801101197_Beagle.jpg" id='imag' class="img-rounded"></td>
-            <td>
-              <img src="http://r.ddmcdn.com/w_600/s_f/o_1/cx_50/cy_0/cw_540/ch_360/APL/uploads/2014/07/1405106713345B029HH_12670801101197_Beagle.jpg" id='imag' class="img-rounded"></td>
-            <td>
-              <img src="http://r.ddmcdn.com/w_600/s_f/o_1/cx_50/cy_0/cw_540/ch_360/APL/uploads/2014/07/1405106713345B029HH_12670801101197_Beagle.jpg" id='imag' class="img-rounded"></td>
-            <td>
-              <img src="http://r.ddmcdn.com/w_600/s_f/o_1/cx_50/cy_0/cw_540/ch_360/APL/uploads/2014/07/1405106713345B029HH_12670801101197_Beagle.jpg" id='imag' class="img-rounded"></td>
-          </div>
-          </div>  
-          </div>
-        </tr> -->
   </div>
+
+  <!-- template -->
+  // <script type="text/template" id="imag-template">
+  //     <td class="images">
+  //       {{= imag }}
+  //     </td>
+  // </script>
 
 </body>
 </html>

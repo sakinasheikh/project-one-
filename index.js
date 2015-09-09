@@ -64,7 +64,12 @@ app.get("/api/idea", function (req, res) {
 })
 
 app.get("/profile", function (req, res) {
-  res.render('profile');
+  req.currentUser(function(err, user) {
+    if (err) {
+      req.redirect("/login");
+    }
+    res.render('profile', {user: user});
+  })
 });
 
 app.get("/signup", function (req, res) {

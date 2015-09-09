@@ -7,21 +7,10 @@
     z-index: 1;
 }
 
-#imag {
+#pic {
 	width: 18%;
 	margin: 5px;
 
 }
 
-.num1 {
-	transform: rotate(15deg);
-}
 
-.num2 {
-    transform: rotate(-20deg);
-   
-}
-
-.num3 {
-	transform: rotate(-10deg);
-}
