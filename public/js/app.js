@@ -1,3 +1,5 @@
+
+
 // var db = require("./models");
 
 // db.Imag.find({}, function (err, foundImag) {
@@ -8,6 +10,8 @@
 
 // same as `$(document).ready`, it will only run once the document loads
 $(function(){
+
+  
   // //create our octocat template
   // var imageTemplate = _.template($('#imag-template').html());
   // // data is defined in data.js

@@ -1,10 +1,7 @@
-#desktop {
+.body{
 	width: 80%;
 	position: absolute;
 	z-index: -1;
-}
-.text{
-    z-index: 1;
 }
 
 #pic {
@@ -14,7 +11,7 @@
 }
 
 .jumbotron{
-	background-image:'http://media02.hongkiat.com/overcome-block-generate-blog-ideas/writer-block.jpg';
-	background-repeat: no-repeat;
+	z-index: 1;
+	opacity: 0.7;
 }
 

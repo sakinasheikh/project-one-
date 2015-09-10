@@ -29,16 +29,20 @@ var UserSchema = new Schema({
   ideas: [IdeaSchema]
 });
 
-IdeaSchema.statics.createIdea =function (titles, images, cb) {
-  var _this = this;
-  var idea = {
-    titles: titles,
-    images: images,
-    createdAt: Date.now()
-  };
-  _this.create(idea, cb);
-  // UserSchema.push(idea);
-};
+// var theNewOne = []
+
+// IdeaSchema.statics.createIdea =function (titles, images, cb) {
+//   var _this = this;
+//   var idea = {
+//     titles: titles,
+//     images: images,
+//     createdAt: Date.now()
+//   };
+//   //var theNewOne = 
+//   _this.create(idea, cb);
+
+//   // UserSchema.push(_this);
+// };
 
 // create a new user with secure (hashed) password (for sign up)
 UserSchema.statics.createSecure = function (email, password, cb) {
@@ -52,10 +56,12 @@ UserSchema.statics.createSecure = function (email, password, cb) {
       var user = {
         email: email,
         passwordDigest: hash,
-        createdAt: Date.now()
+        createdAt: Date.now(),
+        // ideas: [theNewOne]
       };
       // create a new user in the db with hashed password and execute the callback when done
       _this.create(user, cb);
+      console.log(user);
     });
   });
 };

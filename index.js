@@ -104,15 +104,28 @@ app.post(["/users", "/signup"], function (req, res) {
 
 app.post(["/idea"], function (req, res) {
   console.log(req.body);
-  var idea = req.body.idea;
-  var titles = idea.titles;
-  var images = idea.images;
+  // var idea = req.body.idea;
+  // var titles = idea.titles;
+  // var images = idea.images;
 
-
-  db.Idea.createIdea(titles, images, function (err, idea) {
-    console.log(idea);
-    res.redirect("/profile");
+  // db.Idea.createIdea(titles, images, function (err, idea) {
+  //   console.log(idea);
+  //   req.user.push(idea);
+  //   req.user.save(function (err, wait) {
+  //     if (err) {return console.log(err);}
+  //     res.redirect("/profile");
+  //   });
+    
+  // });
+  req.currentUser(function(err, user) {
+    user.ideas.push(req.body.idea);
+    user.save(function (err) {
+      if (err) { return console.log(err); }
+      console.log(req.body.idea , " has been added for user " + user.email);
+    });
   });
+      res.redirect('/profile');
+
 
 });
 
@@ -122,13 +135,15 @@ app.post(["/sessions", "/login"], function (req, res) {
   var email = user.email;
   var password = user.password;
   db.User.authenticate(email, password, function (err, user) {
-    // if(err){console.log(err); res.redirect('/login');}
-
+    if(err){console.log(err); 
+      
+      res.redirect('/login');}
+      else {
     console.log("this is login user", user);
     req.login(user);
     // redirect to user profile
     res.redirect("/profile"); 
-    
+    }
   });
 });
 
